@@ -215,12 +215,12 @@ h3 {
 /* ============ Menu item add button ============ */
 .menu-item {
   position: relative;
-  padding-right: 6.5rem;
 }
 .add-to-cart-btn {
-  position: absolute;
-  right: 0;
-  top: 1.4rem;
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: end;
+  margin-top: 0.6rem;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.04em;
@@ -471,12 +471,17 @@ h3 {
 
 @media (max-width: 640px) {
   .menu-item {
-    padding-right: 0;
-    padding-bottom: 3rem;
+    grid-template-columns: 1fr;
+    row-gap: 0.4rem;
+  }
+  .menu-item-price,
+  .add-to-cart-btn {
+    grid-column: 1;
+    justify-self: start;
   }
   .add-to-cart-btn {
-    top: auto;
-    bottom: 1.2rem;
+    grid-row: 3;
+    margin-top: 0.2rem;
   }
 }
 
@@ -651,14 +656,16 @@ h3 {
 .menu-item {
   display: none;
   grid-template-columns: 1fr auto;
+  column-gap: 1.5rem;
   padding: 1.4rem 0;
   border-bottom: 1px solid rgba(243, 233, 218, 0.12);
-  align-items: baseline;
+  align-items: start;
 }
 .menu-item.show {
   display: grid;
 }
 .menu-item-name {
+  grid-column: 1;
   font-family: var(--font-display);
   font-size: 1.15rem;
 }
@@ -682,8 +689,8 @@ h3 {
 }
 .menu-item-price {
   grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
+  grid-row: 1;
+  justify-self: end;
   font-family: var(--font-mono);
   color: var(--gold-soft);
 }
@@ -875,10 +882,6 @@ h3 {
   }
   .origins-route {
     grid-template-columns: 1fr;
-  }
-  .menu-item-price {
-    grid-row: auto;
-    margin-top: 0.4rem;
   }
 }
 
